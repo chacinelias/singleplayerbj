@@ -15,11 +15,11 @@ public class SinglePlayerBJ {
         String playerName;
         String playAgain = "yes";
         
-        System.out.println("\u2665\u2660-BLACKJACK-\u2666\u2663");
+        System.out.println("\t\t\u2665\u2660-BLACKJACK-\u2666\u2663\n\n\n\n");
         
         System.out.println("Please enter your name:");
         playerName = in.nextLine();
-        System.out.println("Welcome " + playerName + ", cards are being dealt...\n");
+        System.out.println("Welcome " + playerName + ", you will start with $100 in your stack. \n\n\n\t\tCards are being dealt...\n");
         
         //////////timer code:
         thread = new SinglePlayerBJ();
@@ -38,7 +38,7 @@ public class SinglePlayerBJ {
                   
         while(!playAgain.equalsIgnoreCase("n")){
             Round newRound = new Round(playerName);
-            System.out.println("Would you like to play again? (n for no)");
+            System.out.println("\t\tWould you like to play again? (n for no)");
             playAgain = in.nextLine();
             if(playAgain.equals("n")){
                 System.out.println("Goodbye!");
@@ -51,7 +51,7 @@ class Helper extends TimerTask{
     String[] suits = {"\u2665","\u2660","\u2666","\u2663"};
     public static int i = 0;
     public void run(){
-        System.out.println(suits[i]);
+        System.out.println("\t\t\t"+suits[i]);
         i++;
         if(i == 4){
             synchronized(SinglePlayerBJ.thread)
@@ -72,4 +72,5 @@ class Helper extends TimerTask{
 -Add a split play after initial deal is a pair
 -Dealer is hitting when he should stay (right after initial deal)
 -No "hit or stand?" prompt after initial deal
+-Get brokeFlag working for ending game
 */
